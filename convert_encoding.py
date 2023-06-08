@@ -18,6 +18,6 @@ if not os.path.exists(target_filename):
             for line in source_file:
                 converted_line = line.encode(to_encoding).decode(to_encoding)
                 target_file.write(converted_line)
-    print('Ready.')
+    print('Ready. Bye.')
 else:
     print(f'{target_filename} is already there, not re-encoding it.')
