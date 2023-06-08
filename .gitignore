@@ -3,3 +3,4 @@ osszesnoi.txt
 *.csv
 *.zip
 __pycache__/
+*.sql
