@@ -25,6 +25,10 @@ recordperinsert = int(sys.argv[4])
 if not recordperinsert:
     recordperinsert = 1000
 
+if recordperfile < recordperinsert:
+    print('Record_per_file must be greater or equal than record_per_insert.')
+    sys.exit(1)
+
 records = []
 
 file_count = 0
