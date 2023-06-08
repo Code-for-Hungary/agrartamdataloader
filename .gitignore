@@ -1,0 +1,5 @@
+osszesffi.txt
+osszesnoi.txt
+*.csv
+*.zip
+__pycache__/
