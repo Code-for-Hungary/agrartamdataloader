@@ -83,4 +83,4 @@ if records:
 for output_file in output_files:
     output_file.close()
 
-print(f"Létrehozott fájlok száma: {file_count+1}")
+print('Ready. Bye.')
