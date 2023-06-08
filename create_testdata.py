@@ -9,7 +9,7 @@ if len(sys.argv) < 4:
 
 source_filename = sys.argv[1]
 target_filename = sys.argv[2]
-recno = sys.argv[3]
+recno = int(sys.argv[3])
 
 with open(source_filename, 'r') as file:
     lines = [next(file) for _ in range(recno)]
@@ -17,3 +17,5 @@ with open(source_filename, 'r') as file:
 with open(target_filename, 'w') as output_file:
     for line in lines:
         output_file.write(line)
+
+print('Ready. Bye.')
