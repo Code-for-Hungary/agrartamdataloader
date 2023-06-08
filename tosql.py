@@ -2,7 +2,7 @@ import sys
 import csv
 
 def write_insert(file, records):
-    file.write('INSERT INTO tamogatas VALUES \n')
+    file.write('INSERT INTO tamogatas (ev,name,irszam,varos,utca,osszeg,evesosszeg,is_firm,is_landbased,gender,jogcim_id,alap_id,forras_id,megye_id,telepules_id) VALUES \n')
     file.write(',\n'.join(records))
     file.write(';\n')
 
@@ -38,7 +38,24 @@ with open(source_filename, 'r') as source_file:
         if row_number == 1:
             continue
 
-        records.append(f'("{row[0]}","{row[1]}")')
+        records.append('(' +
+                       f'"{row[9]}",' + # ev
+                       f'"{row[0]}",' + # name
+                       f'"{row[1]}",' + # irszam
+                       f'"{row[2]}",' + # varos
+                       f'"{row[3]}",' + # utca
+                       f'{row[7]},' + # osszeg
+                       f'{row[8]},' + # evesosszeg
+                       f'{row[10]},' + # is_firm
+                       f'{row[15]},' + # is_landbased
+                       f'{row[11]},' + # gender
+                       f'{row[12]},' + # jogcim_id
+                       f'{row[13]},' + # alap_id
+                       f'{row[14]},' + # forras_id
+                       f'"{row[17]}",' + # megye_id
+                       f'{row[16]}' + # telepules_id
+                       ')'
+                       )
 
         if row_number % recordperinsert == 0:
             write_insert(output_file, records)
