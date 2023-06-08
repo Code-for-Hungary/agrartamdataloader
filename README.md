@@ -48,3 +48,14 @@ Ezeket az adatokat a program az agrártámogatás keresőtől kérdezi le a megf
 
 ### Cégcsoport, támogatott
 
+### Tesztadatok
+
+Ha egy évnél kevesebb adaton akarsz tesztelni valamit, használd a következő parancsot:
+```
+python3 create_testdata.py utf8_export.csv testdata.csv 200
+```
+Ezzel utf8_export.csv első 200 sorát kiírod testdata.csv-be.  
+Ezután így futtasd process.py-t:
+```
+python3 process.py testdata.csv testeredmeny.csv 2022
+```
