@@ -19,10 +19,14 @@ Paraméterei sorban: forrás fájl, eredmény fájl, az adatok éve.
 
 Az előzőleg létrejött fájlból a következő paranccsal csinálj SQL scriptet:
 ```
-python3
+python3 tosql.py feldolgozott.csv betoltendo 50000 1000
 ```
-Ezt az SQL scriptet töltsd be valahogy az adatbázisodba.
-
+A feldolgozott.csv-t feldarabolja és annyi betoltendo_N.sql fájlt generál belőle, amennyiben elfér 50000 sornyi adat 1000 soronként INSERTálva.  
+Ha túl nagyok az sql fájlok, akkor először az első számot csökkentsd.  
+Ha az adatbázis szerver még így sem bír betölteni egy fájlt, akkor csökkentsd a másodikat is.  
+*Első szám >= második szám.*  
+Az eredményül kapott SQL scripteket töltsd be valahogy az adatbázisodba.  
+Ready. Bye.
 ## Jó tudni
 
 ### osszesnoi.txt, osszesffi.txt
