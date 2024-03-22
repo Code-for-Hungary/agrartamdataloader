@@ -8,7 +8,11 @@ def mark_rows(csv_file):
     print('Processing')
 
     marked_rows = []
-    
+
+    hjogcim = []
+    halap = []
+    hforras = []
+
     with open(csv_file, 'r') as file:
         reader = csv.reader(file, delimiter=';')
         header = next(reader)
@@ -46,6 +50,8 @@ def mark_rows(csv_file):
             if jogcim:
                 row.append(jogcim['id'])
             else:
+                if row[4] not in hjogcim:
+                    hjogcim.append(row[4])
                 row.append('')
 
             # alap
@@ -53,6 +59,8 @@ def mark_rows(csv_file):
             if alap:
                 row.append(alap['id'])
             else:
+                if row[5] not in halap:
+                    halap.append(row[5])
                 row.append('')
 
             # forras
@@ -60,6 +68,8 @@ def mark_rows(csv_file):
             if forras:
                 row.append(forras['id'])
             else:
+                if row[6] not in hforras:
+                    hforras.append(row[6])
                 row.append('')
 
             if row[4] in ['Területalapú támogatás', 'Zöldítés támogatás igénylése']:
@@ -81,6 +91,18 @@ def mark_rows(csv_file):
 
             marked_rows.append(row)
     
+    of = open('kapcs.sql', 'w');
+    for s in hjogcim:
+        of.write(f"INSERT INTO jogcims (name, sorrend) VALUES (\"{s}\", 99888);\n")
+
+    for s in halap:
+        of.write(f"INSERT INTO alaps (name, sorrend) VALUES (\"{s}\", 99888);\n")
+
+    for s in hforras:
+        of.write(f"INSERT INTO jogcims (name) VALUES (\"{s}\");\n")
+
+    of.close()
+
     return marked_rows
 
 def is_firm(name):

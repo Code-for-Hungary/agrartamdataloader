@@ -17,6 +17,10 @@ python3 process.py utf8_export.csv feldolgozott.csv 2022
 ```
 Paraméterei sorban: forrás fájl, eredmény fájl, az adatok éve.
 
+Ha hiányoznak az agrár adatbázisból kapcsolódó adatok, akkor itt jön létre kapcs.sql. Ha a fájl nem üres, futtasd le az agrár adatbázison és utána futtasd újra ezt a lépést.
+
+Töltsd be a feldolgozott.csv-t excelbe és nézd meg, hogy van-e sor üres településsel vagy üres megyével. Ha van, javítsd az agrár adatbázisban. Általában új "mellék" irányítószámon jelenik meg egy település vagy annak része, rögzítsd az adatbázisban (admin felület nincs, marad az SQL, bocs).
+
 Az előzőleg létrejött fájlból a következő paranccsal csinálj SQL scriptet:
 ```
 python3 tosql.py feldolgozott.csv betoltendo 50000 1000
